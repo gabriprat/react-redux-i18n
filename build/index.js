@@ -44,16 +44,22 @@ exports.syncTranslationWithStore = syncTranslationWithStore;
 
 var _reactI18nify = require('react-i18nify');
 
+var I18n = _interopRequireWildcard(_reactI18nify);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.I18n = _reactI18nify.I18n;
-exports.Translate = _reactI18nify.Translate;
-exports.Localize = _reactI18nify.Localize;
+var Localize = I18n.Localize,
+    Translate = I18n.Translate;
+exports.I18n = I18n;
+exports.Translate = Translate;
+exports.Localize = Localize;
 function syncTranslationWithStore(store) {
-  _reactI18nify.I18n.setTranslationsGetter(function () {
+  I18n.setTranslationsGetter(function () {
     return store.getState().i18n.translations || {};
   });
-  _reactI18nify.I18n.setLocaleGetter(function () {
+  I18n.setLocaleGetter(function () {
     return store.getState().i18n.locale || '';
   });
 }

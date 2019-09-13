@@ -1,5 +1,6 @@
-import { I18n, Translate, Localize } from 'react-i18nify';
+import * as I18n from 'react-i18nify';
 
+const { Localize, Translate } = I18n;
 export { I18n, Translate, Localize };
 
 export {
